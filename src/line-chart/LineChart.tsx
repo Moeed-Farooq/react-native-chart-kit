@@ -452,13 +452,13 @@ class LineChart extends AbstractChart<LineChartProps, LineChartState> {
               height
             )) /
             4) *
-            3 +
+          3 +
           paddingTop;
         yValues.push(yval);
         const xval =
           paddingRight +
           ((dataset.data.length - index - 1) * (width - paddingRight)) /
-            dataset.data.length;
+          dataset.data.length;
         xValues.push(xval);
 
         yValuesLabel.push(
@@ -579,13 +579,12 @@ class LineChart extends AbstractChart<LineChartProps, LineChartState> {
               })
               .join(" ") +
             ` ${paddingRight +
-              ((width - paddingRight) / dataset.data.length) *
-                (dataset.data.length - 1)},${(height / 4) * 3 +
-              paddingTop} ${paddingRight},${(height / 4) * 3 + paddingTop}`
+            ((width - paddingRight) / dataset.data.length) *
+            (dataset.data.length - 1)},${(height / 4) * 3 +
+            paddingTop} ${paddingRight},${(height / 4) * 3 + paddingTop}`
           }
-          fill={`url(#fillShadowGradientFrom${
-            useColorFromDataset ? `_${index}` : ""
-          })`}
+          fill={`url(#fillShadowGradientFrom${useColorFromDataset ? `_${index}` : ""
+            })`}
           strokeWidth={0}
         />
       );
@@ -618,9 +617,8 @@ class LineChart extends AbstractChart<LineChartProps, LineChartState> {
     const baseHeight = this.calcBaseHeight(datas, height);
     const xMax = this.getXMaxValues(data);
 
-    let lastPoint: string;
-
     data.forEach((dataset, index) => {
+      let lastPoint: string;
       const points = dataset.data.map((d, i) => {
         if (d === null) return lastPoint;
         const x = (i * (width - paddingRight)) / xMax + paddingRight;
@@ -758,17 +756,16 @@ class LineChart extends AbstractChart<LineChartProps, LineChartState> {
           data
         }) +
         ` L${paddingRight +
-          ((width - paddingRight) / xMax) *
-            (dataset.data.length - 1)},${(height / 4) * 3 +
-          paddingTop} L${paddingRight},${(height / 4) * 3 + paddingTop} Z`;
+        ((width - paddingRight) / xMax) *
+        (dataset.data.length - 1)},${(height / 4) * 3 +
+        paddingTop} L${paddingRight},${(height / 4) * 3 + paddingTop} Z`;
 
       return (
         <Path
           key={index}
           d={d}
-          fill={`url(#fillShadowGradientFrom${
-            useColorFromDataset ? `_${index}` : ""
-          })`}
+          fill={`url(#fillShadowGradientFrom${useColorFromDataset ? `_${index}` : ""
+            })`}
           strokeWidth={0}
         />
       );
@@ -871,18 +868,18 @@ class LineChart extends AbstractChart<LineChartProps, LineChartState> {
               {withHorizontalLines &&
                 (withInnerLines
                   ? this.renderHorizontalLines({
-                      ...config,
-                      count: count,
-                      paddingTop,
-                      paddingRight
-                    })
+                    ...config,
+                    count: count,
+                    paddingTop,
+                    paddingRight
+                  })
                   : withOuterLines
-                  ? this.renderHorizontalLine({
+                    ? this.renderHorizontalLine({
                       ...config,
                       paddingTop,
                       paddingRight
                     })
-                  : null)}
+                    : null)}
             </G>
             <G>
               {withHorizontalLabels &&
@@ -900,18 +897,18 @@ class LineChart extends AbstractChart<LineChartProps, LineChartState> {
               {withVerticalLines &&
                 (withInnerLines
                   ? this.renderVerticalLines({
-                      ...config,
-                      data: data.datasets[0].data,
-                      paddingTop: paddingTop as number,
-                      paddingRight: paddingRight as number
-                    })
+                    ...config,
+                    data: data.datasets[0].data,
+                    paddingTop: paddingTop as number,
+                    paddingRight: paddingRight as number
+                  })
                   : withOuterLines
-                  ? this.renderVerticalLine({
+                    ? this.renderVerticalLine({
                       ...config,
                       paddingTop: paddingTop as number,
                       paddingRight: paddingRight as number
                     })
-                  : null)}
+                    : null)}
             </G>
             <G>
               {withVerticalLabels &&
